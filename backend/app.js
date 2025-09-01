@@ -1,4 +1,3 @@
-
 import express from 'express';
 import morgan from 'morgan';
 import connection from './db/db.js';
@@ -9,19 +8,21 @@ import cors from 'cors';
 
 await connection();
 
-
-
 const app = express();
-app.use(cors());
+
+// ✅ Proper CORS config
+app.use(cors({
+  origin: "http://localhost:5173",   // frontend URL
+  credentials: true                  // allow cookies / auth headers
+}));
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
 app.use('/users', userRoutes);
 app.use('/projects', projectRoutes);
-
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
