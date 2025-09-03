@@ -51,11 +51,11 @@ const Home = () => {
                 {
                     project.map((project) => (
                         <div key={project._id}
-                            onClick={() => {
-                                navigate(`/project`, {
-                                    state: { project }
-                                })
-                            }}
+                          onClick={() => {
+                              navigate(`/project`, {
+                                   state: { project }
+                               })
+                           }}
                             className="project flex flex-col gap-2 cursor-pointer p-4 border border-slate-300 rounded-md min-w-52 hover:bg-slate-200">
                             <h2
                                 className='font-semibold'
