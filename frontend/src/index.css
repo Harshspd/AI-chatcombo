@@ -18,3 +18,11 @@ body {
 .message-box::-webkit-scrollbar{
   display: none;
 }
+
+.file-tab {
+  max-width: 180px;       /* adjust size */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
